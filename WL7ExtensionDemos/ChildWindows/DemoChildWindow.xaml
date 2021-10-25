@@ -8,19 +8,43 @@
              xmlns:local="clr-namespace:WL7ExtensionDemos"
              mc:Ignorable="d" Background="#e1eced"
              d:DesignHeight="450" d:DesignWidth="800">
-    <DockPanel>
+    <TabControl>
+        <TabItem Header="CoreChart Tiled">
+            <DockPanel Background="#e1eced">
+                
+                <!--Toolbar-->
+                <WrapPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                    <TextBlock Margin="4" Text="Select a Symbol and press Enter"/>
+                    <TextBox Margin="0,4,4,4" Name="txtSymbol" Width="100" KeyDown="txtSymbolKeyDown"/>
+                </WrapPanel>
+                
+                <!--4 CoreCharts in a grid-->
+                <wpf:EasyGrid Rows="*,*" Cols="*,*">
+                    <chart:CoreChart Name="coreDaily"/>
+                    <chart:CoreChart Name="coreWeekly" Grid.Column="1"/>
+                    <chart:CoreChart Name="coreMonthly" Grid.Row="1"/>
+                    <chart:CoreChart Name="coreQuarterly" Grid.Column="1" Grid.Row="1"/>
+                </wpf:EasyGrid>
+                
+            </DockPanel>
+        </TabItem>
+        <TabItem Header="Chart and Indicator">
+            <DockPanel Background="#e1eced">
 
-        <!--Toolbar-->
-        <WrapPanel Orientation="Horizontal" DockPanel.Dock="Top">
-            <TextBlock Margin="4" Text="Select an Indicator and press OK"/>
-            <Border Height="20" BorderBrush="LightSteelBlue" Margin="4" BorderThickness="1">
-                <wpf:TimeSeriesComboBox Name="cmbIndicators" Width="200" Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}" SelectionChanged="cmbIndChange" />
-            </Border>
-            <wpf:WLButton DisplayState="Text" Text="OK" Margin="0,4,4,4" Click="btnOkClick"/>
-        </WrapPanel>
-        
-        <!--chart-->
-        <chart:Chart Name="chart" AfterBarsAssigned="chartBarsAssigned"/>
+                <!--Toolbar-->
+                <WrapPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                    <TextBlock Margin="4" Text="Select an Indicator and press OK"/>
+                    <Border Height="20" BorderBrush="LightSteelBlue" Margin="4" BorderThickness="1">
+                        <wpf:TimeSeriesComboBox Name="cmbIndicators" Width="200" Style="{StaticResource {x:Static ToolBar.ComboBoxStyleKey}}" SelectionChanged="cmbIndChange" />
+                    </Border>
+                    <wpf:WLButton DisplayState="Text" Text="OK" Margin="0,4,4,4" Click="btnOkClick"/>
+                </WrapPanel>
 
-    </DockPanel>
+                <!--chart-->
+                <chart:Chart Name="chart" AfterBarsAssigned="chartBarsAssigned"/>
+
+            </DockPanel>
+        </TabItem>
+    </TabControl>
+
 </wpf:ChildWindow>

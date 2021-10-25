@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using WealthLab.Core;
 using WealthLab.Indicators;
 using WealthLab.WPF;
@@ -87,6 +88,33 @@ namespace WL7ExtensionDemos
         private void cmbIndChange(object sender, SelectionChangedEventArgs e)
         {
             PlotIndicator();
+        }
+
+        //key down on symbol field
+        private void txtSymbolKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                string symbol = txtSymbol.Text.Trim();
+                if (symbol == "")
+                    return;
+                BarHistory bars = WLHost.Instance.GetHistory(symbol, HistoryScale.Daily, DateTime.MinValue, DateTime.MaxValue, 0, new GetHistoryControlBlock());
+                if (bars == null || bars.Count == 0)
+                    return;
+                string secName = bars.SecurityName;
+                bars.SecurityName = secName + " Daily";
+                coreDaily.Bars = bars;
+                BarHistory weekly = BarHistoryCompressor.ToWeekly(bars);
+                weekly.SecurityName = secName + " Weekly";
+                coreWeekly.Bars = weekly;
+                BarHistory monthly = BarHistoryCompressor.ToMonthly(bars);
+                monthly.SecurityName = secName + " Monthly";
+                coreMonthly.Bars = monthly;
+                BarHistory quarterly = BarHistoryCompressor.ToQuarterly(bars);
+                quarterly.SecurityName = secName + " Quarterly";
+                coreQuarterly.Bars = quarterly;
+                txtSymbol.Text = "";
+            }
         }
     }
 }
