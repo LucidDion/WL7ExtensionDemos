@@ -20,6 +20,20 @@ namespace WL7ExtensionDemos
         //a "Token" is used for internal tracking of the Child Window, specifically when saving and restoring Workspaces
         public override string Token => "Demo";
 
+        //remember the selected indicator we used when our ChildWindow is saved in a Workspace
+        //typically the "value" string is some tokenized string containing multiple items, but in this case we're saving only a single item so we can do a straight assignment
+        public override string WorkspaceString
+        {
+            get
+            {
+                return _indicatorName;
+            }
+            set
+            {
+                _indicatorName = value;
+            }
+        }
+
         //private members
         private string _indicatorName = "";
 
