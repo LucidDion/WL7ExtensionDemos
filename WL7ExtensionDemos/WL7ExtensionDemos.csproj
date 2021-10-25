@@ -4,4 +4,37 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="WealthLab.Backtest">
+      <HintPath>..\..\..\..\..\..\Program Files\Quantacula, LLC\Wealth-Lab 7\WealthLab.Backtest.dll</HintPath>
+    </Reference>
+    <Reference Include="WealthLab.ChartWPF">
+      <HintPath>..\..\..\..\..\..\Program Files\Quantacula, LLC\Wealth-Lab 7\WealthLab.ChartWPF.dll</HintPath>
+    </Reference>
+    <Reference Include="WealthLab.Community">
+      <HintPath>..\..\..\..\..\..\Program Files\Quantacula, LLC\Wealth-Lab 7\WealthLab.Community.dll</HintPath>
+    </Reference>
+    <Reference Include="WealthLab.Core">
+      <HintPath>..\..\..\..\..\..\Program Files\Quantacula, LLC\Wealth-Lab 7\WealthLab.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WealthLab.Data">
+      <HintPath>..\..\..\..\..\..\Program Files\Quantacula, LLC\Wealth-Lab 7\WealthLab.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WealthLab.Indicators">
+      <HintPath>..\..\..\..\..\..\Program Files\Quantacula, LLC\Wealth-Lab 7\WealthLab.Indicators.dll</HintPath>
+    </Reference>
+    <Reference Include="WealthLab.ScottPlot">
+      <HintPath>..\..\..\..\..\..\Program Files\Quantacula, LLC\Wealth-Lab 7\WealthLab.ScottPlot.dll</HintPath>
+    </Reference>
+    <Reference Include="WealthLab.SharpLearning">
+      <HintPath>..\..\..\..\..\..\Program Files\Quantacula, LLC\Wealth-Lab 7\WealthLab.SharpLearning.dll</HintPath>
+    </Reference>
+    <Reference Include="WealthLab.TASC">
+      <HintPath>..\..\..\..\..\..\Program Files\Quantacula, LLC\Wealth-Lab 7\WealthLab.TASC.dll</HintPath>
+    </Reference>
+    <Reference Include="WealthLab.WPF">
+      <HintPath>..\..\..\..\..\..\Program Files\Quantacula, LLC\Wealth-Lab 7\WealthLab.WPF.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
